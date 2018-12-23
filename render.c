@@ -13,6 +13,9 @@
 #include "font8x8_hiragana.h"
 #include "font8x8_misc.h"
 #include "font8x8_sga.h"
+#include "font8x8_signs.h"
+#include "font8x8_arduino.h"
+
 
 typedef uint8_t font_t[8];
 
@@ -61,7 +64,9 @@ void render_all(const font_t *font, int count, int cols)
         printf("|");
         for (int i = ord; i < max; ++i)
         {
-            printf("  %3d   |", i);
+            //printf("  %3d   |", i);
+            //printf("  0x%02X  |", i);
+            printf("0x%02X %03o|", i, i);
         }
         printf("\n");
         for (int i = ord; i < max; ++i)
@@ -162,6 +167,16 @@ int main(int argc, char **argv)
                 font = (const font_t *)font8x8_sga;
                 count = sizeof(font8x8_sga) / 8;
             }
+            else if (strcmp(optarg, "signs") == 0)
+            {
+                font = (const font_t *)font8x8_signs;
+                count = sizeof(font8x8_signs) / 8;
+            }
+            else if (strcmp(optarg, "arduino") == 0)
+            {
+                font = (const font_t *)font8x8_arduino;
+                count = sizeof(font8x8_arduino) / 8;
+            }
             else
             {
                 fprintf(stderr, "unknown font %s\n", optarg);
@@ -204,6 +219,9 @@ int main(int argc, char **argv)
 
         printf("\nFONT %s\n", "sga");
         render_all(font8x8_sga, sizeof(font8x8_sga) / 8, cols);
+
+        printf("\nFONT %s\n", "signs");
+        render_all(font8x8_signs, sizeof(font8x8_signs) / 8, cols);
 
         return 0;
     }

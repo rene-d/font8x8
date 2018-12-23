@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.7)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS on)
+add_compile_options( -Wall -Wextra)
 
-project(render)
 add_executable(render render.c)
-target_compile_options(render PRIVATE -Wall -Wextra)
+
+add_executable(arduino arduino.cpp)

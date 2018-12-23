@@ -15,9 +15,9 @@ Encoding
 Every character in the font is encoded row-wise in 8 bytes.
 
 The least significant bit of each byte corresponds to the first pixel in a
- row. 
+ row.
 
-The character 'A' (0x41 / 65) is encoded as 
+The character 'A' (0x41 / 65) is encoded as
 { 0x0C, 0x1E, 0x33, 0x33, 0x3F, 0x33, 0x33, 0x00}
 
 
@@ -50,18 +50,18 @@ To visualize the font, a simple renderer is included in render.c
 
     $ gcc render.c -o render
     $ ./render 65
-      XX    
-     XXXX   
-    XX  XX  
-    XX  XX  
-    XXXXXX  
-    XX  XX  
+      XX
+     XXXX
+    XX  XX
+    XX  XX
+    XXXXXX
+    XX  XX
     XX  XX
 
 Credits
 =======
 These header files are directly derived from an assembler file fetched from:
-http://dimensionalrift.homelinux.net/combuster/mos3/?p=viewsource&file=/modules/gfx/font8_8.asm
+https://mysticos.combuster.nl
 
 Original header:
 
@@ -75,5 +75,3 @@ Original header:
 ; License:
 ;     Public Domain
 ;
-
-
